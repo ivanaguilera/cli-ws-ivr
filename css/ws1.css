@@ -1,0 +1,15 @@
+.padding-container {
+	padding: 50px;
+}
+.right-justify {
+   float: right;
+}
+.color-page {
+   background-color: #15C7B1;
+}
+.color-form {
+   background-color: #B2EBF2;
+}
+.btn-margin{
+	margin: 0 3px;
+}

@@ -1,0 +1,70 @@
+
+<html lang="es">
+<head>
+  <title>Hora Fácil</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/ws1.css" media="screen" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/ws1.js"></script>
+  <script>
+  </script>
+</head>
+<body class="color-page">
+  <div class="container padding-container" >
+    <h2>Web Service Perfil</h2>
+    <div class="panel panel-primary ">
+      <div class="panel-heading">Hora Fácil<span class="right-justify"><script type="text/JavaScript"> var f = new Date(); document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear()); </script> </span></div>
+      <div class="panel-body color-form">
+        <form >
+          <div class="row ">
+            <div class="form-group col-sm-1"></div>
+            <div class="form-group col-sm-2">
+              <label for="idres">Id Reserva:</label>
+              <input type="idres" class="form-control input-sm" id="idres" placeholder="Ingrese Id Reserva" value="99999999" required>
+            </div>
+            <div class="form-group col-sm-2">
+              <label for="rut">Rut:</label>
+              <input type="rut" class="form-control input-sm" id="rut" placeholder="Ingrese RUT" value="15.653.148-0" required>
+            </div>
+            <div class="form-group col-sm-2">
+              <label for="ani">Número que llama:</label>
+              <input type="ani" class="form-control input-sm" id="ani" placeholder="Ingrese número que llama">
+            </div>
+            <div class="form-group col-sm-2">
+              <label for="dnis">Número llamado:</label>
+              <input type="dnis" class="form-control input-sm" id="dnis" placeholder="Ingrese número al que  se llama">
+            </div>  
+            <div class="form-group col-sm-2">
+              <label for="callid">Id único de llamada:</label>
+              <input type="callid" class="form-control input-sm" id="callid" placeholder="Ingrese identificador único de llamada">
+            </div>   
+          </div> 
+          <div class="row ">
+            <div class="form-group col-sm-11">
+              <button type="button" class="btn btn-success btn-sm right-justify btn-margin"   onclick='callAjaxPerfil($("#rut").val())'> Perfil </button>
+              <button type="button" class="btn btn-info btn-sm right-justify btn-margin"   onclick='callAjaxConsulta($("#rut").val())'> Consulta Reserva </button>
+              <button type="button" class="btn btn-warning btn-sm right-justify btn-margin"   onclick='callAjaxReserva($("#rut").val())'> Reserva Hora  </button>
+              <button type="button" class="btn btn-primary btn-sm right-justify btn-margin"   onclick='callAjaxCancela($("#rut").val())'> Cancela Reserva </button>
+              <button type="reset" class="btn btn-danger btn-sm right-justify btn-margin" value="Reset" onclick="clean()" >Reset </button>
+            </div>
+          </div>
+        </form>
+        <div class="row ">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4" id="result" style="background-color: white;"></div>
+            <div class="col-sm-4"></div>
+        </div>    
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript">
+  function clean(){
+     $("#result").html("");   
+  }
+</script>
+</html>
+

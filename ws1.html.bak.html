@@ -1,0 +1,85 @@
+
+<html lang="es">
+<head>
+  <title>Hora Fácil</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/ws1.css" media="screen" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/ws1.js"></script>
+  <script>
+  </script>
+</head>
+<body class="color-page">
+  <div class="container padding-container" >
+    <h2>Web Service Perfil</h2>
+    <div class="panel panel-primary ">
+      <div class="panel-heading">Hora Fácil<span class="right-justify"><script type="text/JavaScript"> var f = new Date(); document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear()); </script> </span></div>
+      <div class="panel-body color-form">
+        <form >
+          <div class="row ">
+            <div class="form-group col-sm-3">
+              <label for="rut">Rut:</label>
+              <input type="rut" class="form-control input-sm" id="rut" placeholder="Ingrese RUT" value="15.653.148-0">
+            </div>
+            <div class="form-group col-sm-3">
+              <label for="ani">Número que llama:</label>
+              <input type="ani" class="form-control input-sm" id="ani" placeholder="Ingrese número que llama">
+            </div>
+            <div class="form-group col-sm-3">
+              <label for="dnis">Número llamado:</label>
+              <input type="dnis" class="form-control input-sm" id="dnis" placeholder="Ingrese número al que  se llama">
+            </div>  
+            <div class="form-group col-sm-3">
+              <label for="callid">Id único de llamada:</label>
+              <input type="callid" class="form-control input-sm" id="callid" placeholder="Ingrese identificador único de llamada">
+            </div>   
+          </div>   
+<!--           
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label for="fecha">Fecha:</label>
+              <input type="fecha" class="form-control input-sm" id="fecha" placeholder="Ingrese Fecha">
+            </div>     
+          </div>
+          <div class="row">
+            <div class="form-group col-sm-3"></div>
+            <div class="form-group col-sm-3">
+              <label for="usuario">Usuario:</label>
+              <input type="usuario" class="form-control input-sm" id="usuario" placeholder="Usuario">
+            </div>          
+            <div class="form-group col-sm-3">
+              <label for="pwd">Contraseña:</label>
+              <input type="password" class="form-control input-sm" id="pwd" placeholder="Ingrese Contraseña">
+            </div>
+            <div class="form-group col-sm-3"></div>
+          </div> -->
+          <button type="button" class="btn btn-primary btn-xs right-justify" onclick='callAjax($("#rut").val())'>Enviar</button>
+        </form>
+        <div id="result">        
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+<!-- 
+  IN  Rut, Ani,Dnis,Fecha,callid
+  OUT Validacion, sector, edad, sexo, NumeroMovil, Estado_Paciente 
+
+  ani     numero que llama
+  dnis    numero al que se llama
+  callid  id unico para cada llamada
+
+  Validacion indica si pertenece a la comuna o no. Sector  es el sector donde esta instricto, 
+  se debe especificar un valor en caso que no este inscrito. Estado_Paciente indica si el 
+  paciente esta activo o no.
+
+  Validacion: True/False True pertenece a la comuna.  
+  Sector: donde está inscrito (Siempre tendra sector ,esta definido como requerido)
+  Edad, Sexo, NumeroMovil : Datos de Paciente
+  Estado_Paciente:True/False activo/inactivo
+-->
+
