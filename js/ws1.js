@@ -1,6 +1,5 @@
 function callAjaxPerfil(prut){
     var txt,rut,callid,ani,dnis ;
-
     rut = $("#rut").val();
     callid = $("#callid").val();
     ani = $("#ani").val();
@@ -50,7 +49,7 @@ function callAjaxPerfil(prut){
          txt=resultado.replace(/,/gi,'<br>');
          txt=txt.replace(/{/gi,'{<br>');
          txt=txt.replace(/}/gi,'<br>}');
-         alert (txt);
+       
           var obj = JSON.parse(resultado);
 
            // txt = "";
@@ -68,35 +67,34 @@ function callAjaxPerfil(prut){
   }
 
   function callAjaxReserva(prut){
-    var txt,rut,callid,ani,dnis ;
-    
-    rut = $("#rut").val();
+    var txt,rutp,rutm,espe,callid,ani,dnis ;
+    espe = $("#espe").val();
+    rutp = $("#rut").val();
+    rutm = $("#rutm").val();
     callid = $("#callid").val();
     ani = $("#ani").val();
     dnis = $("#dnis").val();
-    if (rut=="") { alert ("Debe ingresar un Rut");} 
+    if (rutp=="") { alert ("Debe ingresar un Rut de Paciente");} 
     else if (ani==""){ alert ("Debe ingresar un numero de origen");} 
     else if (dnis==""){ alert ("Debe ingresar un numero de destino");} 
     else if (callid==""){ alert ("Debe ingresar un id de llamada");} 
+    else if (rutm==""){ alert ("Debe ingresar un Rut de Medico");} 
+    else if (espe==""){ alert ("Debe ingresar una especialidad médica");} 
     else {
       $.ajax({ url: 'ws1.php',type: 'POST',dataType: 'html',
-        data: { action: "call_reserva",rut: rut,ani: ani,dnis: dnis,callid: callid},
+        data: { action: "call_reserva",rutp: rutp,rutm: rutm,espe: espe,ani: ani,dnis: dnis,callid: callid},
         success:function(resultado){
          // imprime "resultado Funcion"
-          var obj = JSON.parse(resultado);
-           txt = "";
-           txt = txt.concat("Validacion   : ".concat(obj.Validacion));
-           txt = txt.concat("<br>Sector   : ".concat(obj.sector));
-           txt = txt.concat("<br>Edad     : ".concat(obj.edad));
-           txt = txt.concat("<br>Sexo     : ".concat(obj.sexo));
-           txt = txt.concat("<br>Móvil    : ".concat(obj.numeroMovil));
-           txt = txt.concat("<br>Estado_paciente     : ".concat(obj.estado_paciente));
+          //var obj = JSON.parse(resultado);
+           //txt = "";
+ 
            //$("#result").html(resultado);                      
-           $("#result").html(txt);                      
+           $("#result").html(resultado);                      
         }
       });      
     }
   }
+
   function callAjaxCancela(prut){
     var txt,rut,callid,ani,dnis,idres;
 

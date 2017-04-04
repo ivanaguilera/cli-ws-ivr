@@ -14,7 +14,7 @@
 </head>
 <body class="color-page">
   <div class="container padding-container" >
-    <h2>Web Service Perfil</h2>
+    <h2>Web Service</h2>
     <div class="panel panel-primary ">
       <div class="panel-heading">Hora Fácil<span class="right-justify"><script type="text/JavaScript"> var f = new Date(); document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear()); </script> </span></div>
       <div class="panel-body color-form">
@@ -26,7 +26,7 @@
               <input type="idres" class="form-control input-sm" id="idres" placeholder="Ingrese Id Reserva" value="99999999" required>
             </div>
             <div class="form-group col-sm-2">
-              <label for="rut">Rut:</label>
+              <label for="rut">Rut Paciente:</label>
               <input type="rut" class="form-control input-sm" id="rut" placeholder="Ingrese RUT" value="15.653.148-0" required>
             </div>
             <div class="form-group col-sm-2">
@@ -38,12 +38,24 @@
               <input type="dnis" class="form-control input-sm" id="dnis" placeholder="Ingrese número al que  se llama">
             </div>  
             <div class="form-group col-sm-2">
-              <label for="callid">Id único de llamada:</label>
+              <label for="callid">Id de llamada:</label>
               <input type="callid" class="form-control input-sm" id="callid" placeholder="Ingrese identificador único de llamada">
             </div>   
           </div> 
           <div class="row ">
+             <div class="form-group col-sm-1"></div>
+             <div class="form-group col-sm-2">
+              <label for="rutm">Rut Medico:</label>
+              <input type="rutm" class="form-control input-sm" id="rutm" placeholder="Ingrese RUT médico" value="6.915.124-8" required>
+            </div>
+            <div class="form-group col-sm-2">
+              <label for="espe">Especialidad:</label>
+              <input type="espe" class="form-control input-sm" id="espe" placeholder="Ingrese especialidad médica" value="1">
+            </div>
+          </div>       
+          <div class="row ">  
             <div class="form-group col-sm-11">
+              <button type="button" class="btn btn btn-link btn-sm right-justify btn-margin"   onclick="ayuda()"> Ayuda </button>
               <button type="button" class="btn btn-success btn-sm right-justify btn-margin"   onclick='callAjaxPerfil($("#rut").val())'> Perfil </button>
               <button type="button" class="btn btn-info btn-sm right-justify btn-margin"   onclick='callAjaxConsulta($("#rut").val())'> Consulta Reserva </button>
               <button type="button" class="btn btn-warning btn-sm right-justify btn-margin"   onclick='callAjaxReserva($("#rut").val())'> Reserva Hora  </button>
@@ -64,6 +76,36 @@
 <script type="text/javascript">
   function clean(){
      $("#result").html("");   
+  }
+
+  function ayuda(){
+    var txt;
+   txt='Datos de entrada requeridos para invocar servicios web \n------------------------------------------------------';
+   txt=txt.concat('\n          Get Perfil' )  ;
+   txt=txt.concat('\n               Rut Paciente' )  ;
+   txt=txt.concat('\n               Numero que llama' )  ;
+   txt=txt.concat('\n               Numero llamado' )  ;
+   txt=txt.concat('\n               Id de llamada' )  ;
+   txt=txt.concat('\n          Consulta Hora');
+   txt=txt.concat('\n               Rut Paciente');
+   txt=txt.concat('\n               Numero que llama');
+   txt=txt.concat('\n               Numero llamado');
+   txt=txt.concat('\n               Id de llamada');
+   txt=txt.concat('\n          Reserva Hora');
+   txt=txt.concat('\n               Rut Paciente');
+   txt=txt.concat('\n               Rut Medico');
+   txt=txt.concat('\n               Especialidad');
+   txt=txt.concat('\n               Numero que llama');
+   txt=txt.concat('\n               Numero llamado');
+   txt=txt.concat('\n               Id de llamada');
+   txt=txt.concat('\n          Cancela Hora');
+   txt=txt.concat('\n               Id de Reserva'); 
+   txt=txt.concat('\n               Rut Paciente');
+   txt=txt.concat('\n               Numero que llama');
+   txt=txt.concat('\n               Numero llamado');
+   txt=txt.concat('\n               Id de llamada');
+   alert(txt);               
+
   }
 </script>
 </html>

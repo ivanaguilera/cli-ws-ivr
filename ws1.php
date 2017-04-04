@@ -26,11 +26,13 @@
                WS_CONSULTA_HORA);
      exit();
   } elseif($_REQUEST["action"] == "call_reserva" ){
-     echo send($_REQUEST["rut"],
-               $_REQUEST['ani'],
-               $_REQUEST['dnis'],
-               $_REQUEST['callid'],
-               WS_RESERVA_HORA);
+     echo sendy($_REQUEST["rutp"],
+                $_REQUEST['rutm'],
+                $_REQUEST['espe'],
+                $_REQUEST['ani'],
+                $_REQUEST['dnis'],
+                $_REQUEST['callid'],
+                WS_RESERVA_HORA);
      exit();
   } elseif($_REQUEST["action"] == "call_cancela" ){
      echo sendx($_REQUEST["idres"],
@@ -54,6 +56,11 @@ function send($rut,$callOrigen,$callDestino,$callId,$ws){
 }
 function sendx($idReserva,$rut,$callOrigen,$callDestino,$callId,$ws){
     $value = $idReserva.'/'.$rut.'/'.$callOrigen.'/'.$callDestino.'/'.$callId.$ws;
+    $json = CallAPI(METHOD,ENDPOINT.RESOURCE.$value, $data = false);
+  return  $json;
+}
+function sendy($rutPaciente,$rutMedico,$especialidad,$callOrigen,$callDestino,$callId,$ws){
+    $value = $rutPaciente.'/'.$rutMedico.'/'.$especialidad.'/'.$callOrigen.'/'.$callDestino.'/'.$callId.$ws;
     $json = CallAPI(METHOD,ENDPOINT.RESOURCE.$value, $data = false);
   return  $json;
 }
